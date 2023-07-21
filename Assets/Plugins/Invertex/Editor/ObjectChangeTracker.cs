@@ -4,6 +4,7 @@ using System.Reflection;
 
 namespace Invertex.UnityEditorTools
 {
+    // ObjectChangeTracker repo: https://github.com/Invertex/UnityEditorObjectEvents/
     public static class ObjectChangeTracker
     {
         /// <summary>

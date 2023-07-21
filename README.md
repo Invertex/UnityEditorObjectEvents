@@ -1,4 +1,4 @@
-# ObjectChangeTracker
+# Editor Object Change Tracker
 Extension of Unity Object Events Stream API to easily receive information about Object interactions in Editor
 
 Currently only has an event for newly created GameObjects.

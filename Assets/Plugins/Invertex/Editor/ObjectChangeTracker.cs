@@ -26,12 +26,13 @@ namespace Invertex.UnityEditorTools
         }
 
      
-        static void ChangesPublished(ref ObjectChangeEventStream objEvents)
+        private static void ChangesPublished(ref ObjectChangeEventStream objEvents)
         {
-            for(int i = 0; i < objEvents.length; i ++)
+            if (OnGameObjectCreated == null) { return; } //Skip operations when nothing is currently subscribed.
+
+            for (int i = 0; i < objEvents.length; i ++)
             {
-                var eventType = objEvents.GetEventType(i);
-                if(eventType == ObjectChangeKind.CreateGameObjectHierarchy)
+                if(objEvents.GetEventType(i) == ObjectChangeKind.CreateGameObjectHierarchy)
                 {
                     objEvents.GetCreateGameObjectHierarchyEvent(i, out var objCreateEvt);
                     GameObjectCreated(objCreateEvt);
